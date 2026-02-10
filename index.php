@@ -7,20 +7,14 @@
 </head>
 <body>
     <?php 
-    // PHP datatypes
-    // Scalar Type
-    $string = "Cythen";
-    $int = 67;
-    $float = 67.67;
-    $bool = false;
-
-    // Array Type
-    $names = ["Renz", "Cythen"];
-
-    // Object Type
-    $object = null;
-
-    $name = "Renz";
+    $_SERVER[""];
+    $_GET[""];
+    $_POST[""];
+    $_REQUEST[""];
+    $_FILES[""];
+    $_COOKIE[""];
+    $_SESSION[""];
+    $_ENV[""];
     ?>
 
     <p>Hi! My name is <?php echo $name; ?>, and I'm learning PHP</p>
