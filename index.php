@@ -7,7 +7,22 @@
 </head>
 <body>
     <?php 
-        echo "Hello World!";
+    // PHP datatypes
+    // Scalar Type
+    $string = "Cythen";
+    $int = 67;
+    $float = 67.67;
+    $bool = false;
+
+    // Array Type
+    $names = ["Renz", "Cythen"];
+
+    // Object Type
+    $object = null;
+
+    $name = "Renz";
     ?>
+
+    <p>Hi! My name is <?php echo $name; ?>, and I'm learning PHP</p>
 </body>
 </html>
