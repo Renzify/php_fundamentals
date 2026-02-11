@@ -6,17 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    $_SERVER[""];
-    $_GET[""];
-    $_POST[""];
-    $_REQUEST[""];
-    $_FILES[""];
-    $_COOKIE[""];
-    $_SESSION[""];
-    $_ENV[""];
-    ?>
+     <main>
+        <form action="./includes/formhandler.php" method="post">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" placeholder="First Name...">
+            <br>
 
-    <p>Hi! My name is <?php echo $name; ?>, and I'm learning PHP</p>
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Last Name...">
+            <br>
+
+            <label for="favoritepet">Favorite Pet: </label>
+            <select name="favoritepet" id="favoritepet">
+                <option value="none">None</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+            </select>
+            <br>
+
+            <button type="submit">Submit</button>
+        </form>
+     </main>
 </body>
 </html>
