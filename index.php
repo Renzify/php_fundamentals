@@ -14,7 +14,7 @@
             <option value="multiply">*</option>
             <option value="divide">/</option>
         </select>
-        <input type="text" name="num2" placeholder="2nd Number">
+        <input type="number" name="num2" placeholder="2nd Number">
     <button>Caculate</button>
     </form>
 
@@ -22,22 +22,25 @@
         // Check Request
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
         // Read/Grab input safely
-            $num1 = filter_input(INPUT_POST, "num1", FILTER_SANITIZE_NUMBER_FLOAT);
-            $num2 = filter_input(INPUT_POST, "num2", FILTER_SANITIZE_NUMBER_FLOAT);
-            $operator = filter_input(INPUT_POST, "operator", FILTER_SANITIZE_SPECIAL_CHARS);
+            $num1 = filter_input(INPUT_POST, "num1", FILTER_VALIDATE_FLOAT);
+            $num2 = filter_input(INPUT_POST, "num2", FILTER_VALIDATE_FLOAT);
+            $operator = filter_input(INPUT_POST, "operator", FILTER_DEFAULT);
 
-        // Validate / Error Handling
+        // Whitelist
+            $allowedOperators = ["add", "subtract", "multiply", "divide"];
+
+        // Error Handling
             $errors = false;
 
-            // Check if empty
-            if (empty($num1) || empty($num2) || empty($operator)) {
-                echo "<p>Please fill in all fields</p>";
+            // Check if valid inputs
+            if ($num1 === false || $num2 === false) {
+                echo "<p>Please input your numbers</p>";
                 $errors = true;
             }
 
-            // Check if valid inputs
-            if (!is_numeric($num1) || !is_numeric($num2)) {
-                echo "<p>Please input a number</p>";
+            // Check if operator is allowed
+            if (!in_array($operator, $allowedOperators, true)){
+                echo "<p>Invalid Operator</p>";
                 $errors = true;
             }
 
@@ -66,6 +69,9 @@
                 }
             //Output
                 echo "<p>Result = " . $value . "</p>";
+
+            } else {
+                echo "<p>Internal Server Error</p>";
             }
         }
     ?>
